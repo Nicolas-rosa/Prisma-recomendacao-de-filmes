@@ -1,0 +1,366 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+ 
+}
+
+body {
+  font-size: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  background-color: #181818;
+  justify-content: center;
+  font-family: 'Roboto', sans-serif;
+  color: #e0e0e0;
+   overflow-y: scroll;
+   overflow-x: hidden;
+}
+
+h1{
+  color: #fff;
+  text-shadow:
+      0 0 7px #fff,
+      0 0 10px #fff,
+      0 0 21px #fff,
+      0 0 42px rgb(132, 0, 255),
+      0 0 82px rgba(0, 255, 170, 0),
+      0 0 92px rgb(153, 0, 255),
+      0 0 102px rgba(157, 0, 255, 0),
+      0 0 151px rgba(200, 0, 255, 0);
+}
+
+header {
+  text-align: center;
+  padding-top: 10vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+header div {
+  margin-top: 2.5vmin;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+header input {
+  text-transform: capitalize;
+  background-color: #252525;
+  width: 50vw;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  color: white;
+  border: 2px solid #8707ff;
+  border-radius: 10px;
+  background: transparent;
+}
+
+input:active {
+  box-shadow: 2px 2px 15px #8707ff inset;
+}
+
+.container {
+  color: #fff;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 20px;
+}
+
+header button {
+  padding: 0.8rem 1.2rem;
+  border: none;
+  border-radius: 10px;
+  background-color: #252525;
+  font-size: 1rem;
+  color: #e0e0e0;
+  cursor: pointer;
+  box-shadow: 5px 5px 10px #151515,
+              -5px -5px 10px #2d2d2d;
+}
+
+button {
+  --glow-color: rgb(217, 176, 255);
+  --glow-spread-color: rgba(191, 123, 255, 0.781);
+  --enhanced-glow-color: rgb(231, 206, 255);
+  --btn-color: rgb(100, 61, 136);
+  border: .25em solid var(--glow-color);
+  padding: 1em 3em;
+  color: var(--glow-color);
+  font-size: 15px;
+  font-weight: bold;
+  background-color: var(--btn-color);
+  border-radius: 1em;
+  outline: none;
+  box-shadow: 0 0 1em .25em var(--glow-color),
+             0 0 4em 1em var(--glow-spread-color),
+             inset 0 0 .75em .25em var(--glow-color);
+  text-shadow: 0 0 .5em var(--glow-color);
+  position: relative;
+  transition: all 0.3s;
+}
+
+button::after {
+  pointer-events: none;
+  content: "";
+  position: absolute;
+  top: 120%;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: var(--glow-spread-color);
+  filter: blur(2em);
+  opacity: .7;
+  transform: perspective(1.5em) rotateX(35deg) scale(1, .6);
+}
+
+button:hover {
+  color: var(--btn-color);
+  background-color: var(--glow-color);
+  box-shadow: 0 0 1em .25em var(--glow-color),
+             0 0 4em 2em var(--glow-spread-color),
+             inset 0 0 .75em .25em var(--glow-color);
+}
+
+button:active {
+  box-shadow: 0 0 0.6em .25em var(--glow-color),
+             0 0 2.5em 2em var(--glow-spread-color),
+             inset 0 0 .5em .25em var(--glow-color);
+}
+
+.resultados-pesquisa {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.card {
+  width: 20vw;
+  height: 60vh;
+  background: #313131;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  transition: 0.2s ease-in-out;
+  margin: 10px;
+}
+
+.card img {
+  object-fit: contain;
+  height: 100%;
+  width: 100%;
+}
+
+.textBox {
+  color: #fff;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  transition: 0.2s ease-in-out;
+  z-index: 1;
+}
+
+.textBox > .text {
+  font-weight: bold;
+}
+
+.textBox > .head {
+  font-size: 4rem;
+}
+
+.textBox > .price {
+  color: #ffffff;
+  font-size: 1rem;
+}
+
+.textBox > meta {
+  font-size: 3rem;
+  color: rgb(255, 255, 255);
+}
+
+.card:hover > .textBox {
+  opacity: 1;
+}
+
+.card:hover > .img {
+  height: 65%;
+  filter: blur(7px);
+  animation: anim 3s infinite;
+}
+
+@keyframes anim {
+  0% {
+      transform: translateY(0);
+  }
+
+  50% {
+      transform: translateY(-20px);
+  }
+
+  100% {
+      transform: translateY(0);
+  }
+}
+
+.card:hover {
+  transform: scale(1.04) rotate(-1deg);
+}
+
+.textBox {
+  color: #ffffff;
+}
+
+.prisma {
+  animation: cimab 2s infinite alternate;
+}
+
+@keyframes cimab {
+  0% {
+      transform: translatey(-3px);
+  }
+
+  100% {
+      transform: translatey(3px);
+  }
+}
+
+.card {
+  background-image: url("cinema-1.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  color: #ffffff;
+}
+
+.textBox {
+  background-color: rgba(0, 0, 0, 0.864);
+  border-radius: 20px;
+  padding: 15px;
+  margin-top: calc(100% - 100%);
+}
+
+h3{
+  color: #ff0000;
+  text-shadow:
+      0 0 7px #000000,
+      0 0 10px #ff0000,
+      0 0 21px #000000,
+      0 0 42px rgb(0, 0, 0),
+      0 0 82px rgba(0, 255, 170, 0),
+      0 0 92px rgb(255, 0, 0),
+      0 0 102px rgba(157, 0, 255, 0),
+      0 0 151px rgba(200, 0, 255, 0);
+}
+
+footer{
+  height: 100vh;
+  text-align: center;
+  justify-content: center;
+}
+.contact{
+  
+  height: 100vh;
+}
+svg{
+  margin-left: 4vw;
+  height: auto;
+  width: 10vw;
+}
+footer.a{
+  pointer-events: none;
+  text-indent: -9999px;
+  color: #31313100;
+}
+h5{
+  color: #ffffff;
+  justify-content: space-around;
+  size: 2vw, 2vh;
+  margin-left: 3vw;
+  
+}
+
+
+
+
+
+
+
+
+
+
+
+@media screen and (max-width: 900px) {
+  * {
+    font-size: 0.8rem;
+  }
+
+  body {
+  
+    overflow-y: scroll;
+    overflow-x: hidden;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  header div {
+    margin-top: 1vmin;
+  }
+
+  header input {
+    width: 70vw;
+  }
+
+  .container {
+    padding: 10px;
+  }
+
+  header button {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.8rem;
+  }
+
+  button {
+    padding: 0.5rem 1.5rem;
+    font-size: 12px;
+  }
+
+  .card {
+    width: 70vw;
+    height: 50vh;
+  }
+
+  .textBox {
+    margin-top: calc(100% - 85%);
+  }
+
+  .textBox > .head {
+    font-size: 2rem;
+  }
+
+  .textBox > .price {
+    font-size: 0.8rem;
+  }
+
+  .textBox > meta {
+    font-size: 2rem;
+  }
+  .resultados-pesquisa{
+    justify-content: space-around;
+  }
+}
